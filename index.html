@@ -65,7 +65,7 @@
             margin: 0 auto;
             width: 5em;
             background: transparent;
-            color: #909090;
+            color: #747272;
             border-style: solid;
             border-color: #fff;
             border-width: 0.01em;
@@ -111,17 +111,18 @@
 
     <script>
         const timerDesc = document.querySelector('.timerDesc')
-        let countDownTime = new Date("May 5, 2022 23:07:00").getTime();
+        let countDownTime = new Date("May 17, 2022 23:07:00").getTime();
 
         let countFunc = setInterval(function(){
             let currentTime = new Date().getTime();
             let remainingTime = countDownTime - currentTime;
 
+            let day = Math.floor(remainingTime/(1000*60*60*24))
             let hour = Math.floor((remainingTime%(1000*60*60*24))/(1000*60*60)) 
             let minute = Math.floor((remainingTime%(1000*60*60))/(1000*60))
             let second = Math.floor((remainingTime%(1000*60))/(1000))
 
-            document.getElementById('timer').innerHTML = hour +"ч " + minute +"м " + second +"с "
+            document.getElementById('timer').innerHTML = day + "д " + hour +"ч " + minute +"м " + second +"с "
 
             if (remainingTime < 0) {
                 clearInterval(countFunc)
